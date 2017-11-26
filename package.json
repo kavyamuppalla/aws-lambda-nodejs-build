@@ -1,0 +1,18 @@
+{
+  "name": "aws-lambda-nodejs-build",
+  "version": "1.0.0",
+  "description": "Nodejs Build and archive to S3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kavyamuppalla/aws-lambda-nodejs-build"
+  },
+  "author": "Kavya Muppalla",
+  "license": "MIT"
+}
