@@ -35,13 +35,11 @@ exports.handler = (event, context, callback) => {
 		cd sample-node
 		git checkout master
 		ls -lrt
-		
-		npm install
 	`, { 'stdio': [0,1,2]});
 
 	//Zip the project
 
-	var output = file_system.createWriteStream('/tmp/cicd/clone/sample-node/sample-node.zip');
+	var output = fs.createWriteStream('/tmp/cicd/clone/sample-node/sample-node.zip');
 	var archive = archiver('zip', {zlib: { level: 9 }});
 
 	output.on('close', function () {
