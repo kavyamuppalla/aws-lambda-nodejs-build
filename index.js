@@ -11,6 +11,10 @@ exports.handler = (event, context, callback) => {
 
 	console.log("Executing Shell Commands");
 	execSync(`
+		mkdir -p ${exports.GIT_DIR}
+		cp -r ${__dirname}/. ${exports.GIT_DIR}
+		tar -C ${exports.GIT_DIR} -xvf ${__dirname}/node_modules/lambda-git/git-2.4.3.tar
+
 		mkdir -p ${exports.CLONE_DIR}
 		export GIT_TEMPLATE_DIR=${exports.GIT_TEMPLATE_DIR}
 		export GIT_EXEC_PATH=${exports.GIT_EXEC_DIR}
@@ -27,7 +31,7 @@ exports.handler = (event, context, callback) => {
 		
 		npm install
 		zip -r sample-node.zip .
-	`);
+	`, { 'stdio': [0,1,2]});
 
 	AWS.config.update({ region: 'us-east-1' });
 	var s3 = new AWS.S3({params: {Bucket: 'serverless-pipeline-artifacts'}, region: 'us-east-1'});
