@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "aws-sdk": "^2.156.0",
-    "lambda-git": "^0.1.0"
+    "lambda-git": "^0.1.0",
+    "archiver": "^2.1.0"
   },
   "repository": {
     "type": "git",
