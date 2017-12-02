@@ -31,6 +31,7 @@ exports.handler = (event, context, callback) => {
 
 		git --version
 		cd ${exports.CLONE_DIR}
+		rm -Rf sample-node
 		git clone https://github.com/kavyamuppalla/sample-node
 		cd sample-node
 		git checkout master
